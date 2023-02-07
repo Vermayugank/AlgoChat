@@ -16,6 +16,7 @@ body {
   overflow: auto;
   padding: 0px;
   position: relative;
+  min-height: 100vh;
 }
 
 .container {
@@ -440,11 +441,20 @@ textarea {
   border-radius: 0.6rem;
   height: 80vh;
   background-color: #191919;
-  margin-top: 2rem;
+  margin-top: 0rem;
   position: relative;
   overflow: hidden;
   margin-top: 3rem;
-  margin-bottom: 8rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 600px) {
+  .chat__container {
+    width: 95%;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    height: 85vh;
+  }
 }
 
 .chat__header {

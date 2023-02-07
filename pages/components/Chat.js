@@ -13,7 +13,7 @@ const Chat = ({ getReply }) => {
     messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(scrollToBottom, [loading]);
+  // useEffect(scrollToBottom, [loading]);
 
   const handleSpeak = async (text) => {
     setIsSpeaking(true);
@@ -80,7 +80,6 @@ const Chat = ({ getReply }) => {
             <BouncingDotsLoader />
           </p>
         )}
-        <div ref={messagesEndRef} />
       </div>
 
       <div className="input__form">
