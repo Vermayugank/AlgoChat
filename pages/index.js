@@ -3,32 +3,47 @@ import Image from "next/image";
 import buildspaceLogo from "../assets/buildspace-logo.png";
 import linkedinLogo from "../assets/linkedin-logo.png";
 import { useState } from "react";
-import Chat from "../components/Chat";
+import Chat from "./components/Chat";
+import Navbar from "./components/Navbar";
 
 const Home = () => {
   const [userInput, setUserInput] = useState("");
   const [apiOutput, setApiOutput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
 
-  const callGenerateEndpoint = async () => {
-    setIsGenerating(true);
+  // const callGenerateEndpoint = async () => {
+  //   setIsGenerating(true);
 
-    console.log("Calling OpenAI...");
+  //   console.log("Calling OpenAI...");
+  //   const response = await fetch("/api/generate", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ userInput }),
+  //   });
+
+  //   const data = await response.json();
+  //   const { output } = data;
+  //   console.log("OpenAI replied...", output.text);
+
+  //   setApiOutput(`${output.text}`);
+  //   setIsGenerating(false);
+  // };
+
+  const getReply = async (ques) => {
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userInput }),
+      body: JSON.stringify({ usrInput:ques }),
     });
 
     const data = await response.json();
-    const { output } = data;
-    console.log("OpenAI replied...", output.text);
-
-    setApiOutput(`${output.text}`);
-    setIsGenerating(false);
+    return data.output.text;
   };
+
   const onUserChangedText = (event) => {
     console.log(event.target.value);
     setUserInput(event.target.value);
@@ -36,7 +51,10 @@ const Home = () => {
 
   return (
     <div className="root">
-      <div className="container">
+      {/* <Navbar /> */}
+      <Chat getReply={getReply}/>
+
+      {/* <div className="container">
         <div className="header">
           <div className="header-title">
             <h1>Question Bot</h1>
@@ -44,10 +62,6 @@ const Home = () => {
           <div className="header-subtitle">
             <h2>Ask him about</h2>
           </div>
-        </div>
-
-        <div>
-          <Chat/>
         </div>
 
         <div className="prompt-container">
@@ -86,7 +100,9 @@ const Home = () => {
             </div>
           )}
         </div>
-      </div>
+      </div> */}
+
+
       <div className="badge-container grow">
         <a
           href="https://www.linkedin.com/in/yugank-verma-4376b2201"
