@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import BouncingDotsLoader from "./Loader";
 import TypingText from "./TextTyping";
+import {IoMdSend} from 'react-icons/io'
 
 const Chat = ({ getReply }) => {
   const [message, setMessage] = useState("");
@@ -60,7 +61,7 @@ const Chat = ({ getReply }) => {
 
   return (
     <div className="chat__container">
-      <div className="chat__header">AlgoBot</div>
+      <div className="chat__header">AlgoChat</div>
       <div className="chat__body">
         <p className="ai__chat">Hii there!</p>
         {data.map((item, index) => (
@@ -94,7 +95,7 @@ const Chat = ({ getReply }) => {
             onChange={(e) => setMessage(e.target.value)}
           />
           <button onClick={handleSubmit} className="send_chat">
-            Send
+            <IoMdSend size={25}/>
           </button>
         </form>
       </div>
