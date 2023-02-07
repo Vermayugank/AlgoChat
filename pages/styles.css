@@ -448,14 +448,6 @@ textarea {
   margin-bottom: 3rem;
 }
 
-@media (max-width: 600px) {
-  .chat__container {
-    width: 95%;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-    height: 85vh;
-  }
-}
 
 .chat__header {
   padding: 1rem 2rem;
@@ -573,4 +565,50 @@ textarea {
 
 .bouncing-loader > div:nth-child(3) {
   animation-delay: 0.4s;
+}
+
+
+@media (max-width: 600px) {
+  .chat__container {
+    width: 95%;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    height: 85vh;
+  }
+
+  .input {
+    width: 70%;
+    height: 2.6rem;
+    border-radius: 0.7rem;
+    background-color: #1c1c1c;
+    border: none;
+    color: #fff;
+    padding-left: 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .send_chat {
+    width: 25%;
+    border-radius: 0.7rem;
+    border: none;
+    color: coral;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-left: 0.2rem;
+  }
+
+  .chat__body {
+    background-color: #191919;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 0.6rem 0.6rem;
+    overflow-y: scroll;
+    position: absolute;
+    top: 3.8rem;
+    left: 0;
+    right: 0px;
+    bottom: 3.2rem;
+    padding: 0.5rem;
+  }
 }
