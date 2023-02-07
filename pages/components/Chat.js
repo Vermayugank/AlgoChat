@@ -20,7 +20,7 @@ const Chat = ({ getReply }) => {
     let voices;
     voices = window.speechSynthesis.getVoices();
     const speech = new SpeechSynthesisUtterance(text);
-    speech.voice = voices[4];
+    speech.voice = voices[6];
     speech.onend = () => setIsSpeaking(false);
     speechSynthesis.speak(speech);
   };
