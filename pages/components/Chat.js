@@ -1,20 +1,27 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import BouncingDotsLoader from "./Loader";
 import TypingText from "./TextTyping";
-import {IoMdSend} from 'react-icons/io'
+import { IoMdSend } from "react-icons/io";
 
 const Chat = ({ getReply }) => {
   const [message, setMessage] = useState("");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const messagesEndRef = useRef(null);
+  const [scroll, setScroll] = useState("");
 
-  const scrollToBottom = () => {
-    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  const container = useRef(null);
+
+  const Scroll = () => {
+    const { offsetHeight, scrollHeight, scrollTop } = container.current;
+    if (scrollHeight <= scrollTop + offsetHeight + 100) {
+      container.current?.scrollTo(0, scrollHeight);
+    }
   };
 
-  // useEffect(scrollToBottom, [loading]);
+  useEffect(() => {
+    Scroll();
+  }, [scroll]);
 
   const handleSpeak = async (text) => {
     setIsSpeaking(true);
@@ -35,6 +42,7 @@ const Chat = ({ getReply }) => {
     let msg = data;
     msg.push(msg1);
     setData(msg);
+    setScroll("avs");
   };
 
   const handleSubmit = async (e) => {
@@ -42,8 +50,9 @@ const Chat = ({ getReply }) => {
     if (message === "") return;
     await addUserMessage();
     setLoading(true);
-
-    const output = await getReply(message);
+    const mssg = message;
+    setMessage("");
+    const output = await getReply(mssg);
     console.log(output);
 
     const msg2 = {
@@ -56,13 +65,14 @@ const Chat = ({ getReply }) => {
     setData(msg);
     setLoading(false);
     handleSpeak(output);
-    setMessage("");
   };
 
   return (
     <div className="chat__container">
-      <div className="chat__header">AlgoChat</div>
-      <div className="chat__body">
+      <div className="chat__header">
+        <span>AlgoChat</span>
+      </div>
+      <div className="chat__body" ref={container}>
         <p className="ai__chat">Hii there!</p>
         {data.map((item, index) => (
           <p
@@ -70,7 +80,7 @@ const Chat = ({ getReply }) => {
             className={item.sender == "ai" ? "ai__chat" : "user__chat"}
           >
             {item.sender == "ai" ? (
-              <TypingText inputText={item.text} />
+              <TypingText setScroll={setScroll} inputText={item.text} />
             ) : (
               item.text
             )}
@@ -95,7 +105,7 @@ const Chat = ({ getReply }) => {
             onChange={(e) => setMessage(e.target.value)}
           />
           <button onClick={handleSubmit} className="send_chat">
-            <IoMdSend size={25}/>
+            <IoMdSend size={25} />
           </button>
         </form>
       </div>
