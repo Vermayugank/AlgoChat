@@ -14,11 +14,11 @@ When we want to search or explore anything related to Algorand on the web we nee
 
 The `AlgoChat` bot is designed to help users understand the basics of Algorand and its capabilities. The bot is equipped with a natural language processing engine that allows users to ask questions in a conversational format(we personalized it for our AlgoFam). The bot then uses its AI algorithms to find the most relevant answers from a vast database of information about Algorand.
 
-## How it is solved
+## How it is solved ✨
 
 To overcome this we built an onestop solution to this problem, we built a chatbot `AlgoChat` on the top of OpenAPI api, that answers all the questions related to Algorand Blockchain in a concise manner. Not also it gives text based reply but it also utters the answer which makes it more handy.
 
-## Future Plans
+## Future Plans 
 
 ### Shortcomings:
 
@@ -27,9 +27,3 @@ Currently, the main problem that our AlgoChat is facing is the lack of proper pr
 ### Future plans:
 
 We will be fine-tuning our model for a more optimized and precise response in the future. We will also be increasing the word limit for the chat and will use the paid version of API for faster responses. Along with that, we will train AlgoChat about different projects of the Algorand ecosystem and their impact on the Algorand ecosystem.
-
-## Contributors ✨
-
-<a href = "https://github.com/Vermayugank/AlgoChat/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=Vermayugank/AlgoChat"/>
-</a>
