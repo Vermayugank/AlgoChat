@@ -1,3 +1,3 @@
-# buildspace 
+# AlgoChat
 ### Welcome 👋
 
