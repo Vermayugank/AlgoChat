@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const TypingText = ({inputText}) => {
+const TypingText = ({inputText,setScroll}) => {
   const [text, setText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
   const fullText = inputText;
@@ -16,6 +16,7 @@ const TypingText = ({inputText}) => {
           setIsTyping(false);
           clearInterval(typingInterval);
         }
+        setScroll(fullText.slice(0, ++textIndex));
       }, 60);
     }
 
