@@ -1,14 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import algoLogo from "../assets/algo-logo.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Chat from "./components/Chat";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
-  const [userInput, setUserInput] = useState("");
-  const [apiOutput, setApiOutput] = useState("");
-  const [isGenerating, setIsGenerating] = useState(false);
-  
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
 
   const getReply = async (ques) => {
     const response = await fetch("/api/generate", {
@@ -16,26 +18,16 @@ const Home = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ usrInput:ques }),
+      body: JSON.stringify({ usrInput: ques }),
     });
 
     const data = await response.json();
     return data.output.text;
   };
 
-  const onUserChangedText = (event) => {
-    console.log(event.target.value);
-    setUserInput(event.target.value);
-  };
-
   return (
     <div className="root">
-      {/* <Navbar /> */}
-      <Chat getReply={getReply}/>
-
-      {/*
-      </div> */}
-
+      <Chat getReply={getReply} />
 
       <div className="badge-container grow">
         <a
@@ -46,7 +38,6 @@ const Home = () => {
           <div className="badge">
             <Image src={algoLogo} alt="Algorand Logo" />
             <p>Algorand Docs</p>
-            
           </div>
         </a>
       </div>
