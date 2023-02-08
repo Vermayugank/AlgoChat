@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-const TypingText = ({inputText,setScroll}) => {
-  const [text, setText] = useState('');
+const TypingText = ({ inputText, setScroll }) => {
+  const [text, setText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
   const fullText = inputText;
 
@@ -25,9 +25,7 @@ const TypingText = ({inputText,setScroll}) => {
     };
   }, [isTyping]);
 
-  return (
-      <>{text}</>
-  );
+  return <>{text}</>;
 };
 
 export default TypingText;

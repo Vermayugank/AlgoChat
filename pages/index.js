@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import algoLogo from "../assets/algo-logo.png";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Chat from "./components/Chat";
 import AOS from "aos";
 import "aos/dist/aos.css";

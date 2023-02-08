@@ -73,12 +73,14 @@ const Chat = ({ getReply }) => {
         <span>AlgoChat</span>
       </div>
       <div className="chat__body" ref={container}>
-        <p className="ai__chat">Hii there! You can ask me questions related to Algorand Blockchain.</p>
+        <p className="ai__chat">
+          Hii there! You can ask me questions related to Algorand Blockchain.
+        </p>
         {data.map((item, index) => (
           <p
             key={index}
             className={item.sender == "ai" ? "ai__chat" : "user__chat"}
-            data-aos={item.sender == "ai"? "fade-right":"fade-left"}
+            data-aos={item.sender == "ai" ? "fade-right" : "fade-left"}
           >
             {item.sender == "ai" ? (
               <TypingText setScroll={setScroll} inputText={item.text} />
