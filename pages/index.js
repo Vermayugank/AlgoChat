@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import buildspaceLogo from "../assets/buildspace-logo.png";
+import linkedinLogo from "../assets/linkedin-logo.png";
 import { useState } from "react";
 import Chat from "./components/Chat";
 import Navbar from "./components/Navbar";
@@ -103,6 +104,16 @@ const Home = () => {
 
 
       <div className="badge-container grow">
+        <a
+          href="https://www.linkedin.com/in/yugank-verma-4376b2201"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className="badge">
+            <Image src={linkedinLogo} alt="Linkedin logo" />
+            <p>Linkedin-Yugank Verma</p>
+          </div>
+        </a>
       </div>
     </div>
   );
