@@ -9,7 +9,6 @@ const openai = new OpenAIApi(configuration);
 const basePromptPrefix =
   "This is a chat related to Algorand Blockchain. You Only need to answer the questions related to Algorand Blockchain. Refuse to answer the Questions not related to Algorand Blockchain.";
 const generateAction = async (req, res) => {
-  // console.log(`API: ${basePromptPrefix}${req.body.usrInput}`);
 
   const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",

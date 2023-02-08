@@ -3,7 +3,6 @@ import Image from "next/image";
 import algoLogo from "../assets/algo-logo.png";
 import { useState } from "react";
 import Chat from "./components/Chat";
-import Navbar from "./components/Navbar";
 
 const Home = () => {
   const [userInput, setUserInput] = useState("");
