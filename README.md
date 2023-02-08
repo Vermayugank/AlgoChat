@@ -1,3 +1,3 @@
 # AlgoChat
-### Welcome 👋
+### Welcome 👋 to AlgoChat
 
