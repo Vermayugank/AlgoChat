@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Chat from "./components/Chat";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { AiFillGithub } from "react-icons/ai";
 
 const Home = () => {
   useEffect(() => {
@@ -38,6 +39,19 @@ const Home = () => {
           <div className="badge">
             <Image src={algoLogo} alt="Algorand Logo" />
             <p>Algorand Docs</p>
+          </div>
+        </a>
+      </div>
+
+      <div className="badge-container1 grow">
+        <a
+          href="https://github.com/Vermayugank/AlgoChat"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className="badge">
+            <AiFillGithub size={20} className="git-icon" />
+            <p>Github</p>
           </div>
         </a>
       </div>
